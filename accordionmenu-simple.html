@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyCodeSnippets | Menu | Simple Accordion</title>
+
+    <!-- Styles -->
+<style>
+
+/* Styles for buttons*/
+
+.accordion {
+    background-color: #8FB7A5;
+    color: #FFF;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid white;
+    transition: 0.4s ease;
+    font: 20px Lato, sans-serif;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+p {
+    font: 1em Lato, sans-serif;
+}
+
+/* Add a background color to the clicked on button (add the .active class with JS) and when hovering*/
+.active, .accordion:hover {
+    background-color: #527E6A;
+}
+
+.accordion:after {
+    content: '\02795'; /* Unicode character for + */
+    font-size: 1em;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: '\2796'; /* Unicode character for - */
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, eligendi. Vel, alias ea necessitatibus sint nobis deserunt. Quae veniam iste eius natus. Nesciunt harum labore necessitatibus porro quis fuga facere. Quod, quidem. Impedit, dolore nobis. Esse, amet at harum facilis minus voluptates, laboriosam impedit corrupti reiciendis doloremque qui voluptate vel. Neque earum eligendi quisquam incidunt doloremque ducimus veniam repudiandae in?</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, eligendi. Vel, alias ea necessitatibus sint nobis deserunt. Quae veniam iste eius natus. Nesciunt harum labore necessitatibus porro quis fuga facere. Quod, quidem. Impedit, dolore nobis. Esse, amet at harum facilis minus voluptates, laboriosam impedit corrupti reiciendis doloremque qui voluptate vel. Neque earum eligendi quisquam incidunt doloremque ducimus veniam repudiandae in?</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, eligendi. Vel, alias ea necessitatibus sint nobis deserunt. Quae veniam iste eius natus. Nesciunt harum labore necessitatibus porro quis fuga facere. Quod, quidem. Impedit, dolore nobis. Esse, amet at harum facilis minus voluptates, laboriosam impedit corrupti reiciendis doloremque qui voluptate vel. Neque earum eligendi quisquam incidunt doloremque ducimus veniam repudiandae in?</p>
+</div>
+
+<!-- The GetElementsByClassName() method returns a collection of all elements in the document with the specified class name, as a NodeList object. The NodeList object represents a collection of nodes. The nodes can be accessed by index numbers (starts at 0).-->
+   <script type="text/javascript">
+   var acc = document.getElementsByClassName("accordion");
+   var i;
+
+    /* Loop to add and Event Listener to all specified nodes (with class "accordion")  */
+   for (i = 0; i < acc.length; i++) {
+       acc[i].addEventListener("click", function() {
+
+        /* Toggle between adding and removing the active class, to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+       });
+   }
+   </script>
+</body>
+
+</html>
